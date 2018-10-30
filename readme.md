@@ -11,23 +11,23 @@ This program works on a device running Ubuntu 16.04 and ROS Kinetic Kame.
 
 To install ROS Kinetic Kame in Ubuntu 16.04, follow the steps in this [link](http://wiki.ros.org/kinetic/Installation/Ubuntu).
 
-To install catkin, follow the installation steps in this [link](http://wiki.ros.org/catkin).
+To install ros, follow the installation steps in this [link](http://wiki.ros.org/catkin).
 
 ## Build Instructions
 
-To run this code in a catkin workspace:
+To run this code in a ros workspace:
 ```
-cd ~/catkin_ws/
+cd ~/ros_ws/
 source devel/setup.bash
 cd src/
 git clone https://github.com/bhargav-umd/beginner_tutorials
 cd ..
 catkin_make
 ```
-If you do not have a catkin workspace:
+If you do not have a ros workspace:
 ```
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/
+mkdir -p ~/ros_ws/src
+cd ~/ros_ws/
 catkin_make
 source devel/setup.bash
 cd src/
