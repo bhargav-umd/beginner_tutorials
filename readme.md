@@ -46,13 +46,22 @@ source devel/setup.bash
 roscore
 ```
 
-Then run talker node from a new terminal:
+Then run talker node in second terminal:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials talker
 ```
-Finally run listener node from a new terminal:
+Output will look like:
+```
+[ INFO] [1540934618.726572148]: GO TERPS GO 0
+
+```
+Finally run listener node in third terminal:
 ```
 source devel/setup.bash
 rosrun beginner_tutorials listener
+```
+Output will look like
+```
+[ INFO] [1540934620.527403735]: I heard: [GO TERPS GO 0]
 ```
