@@ -27,6 +27,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
+int callbackCount = 0;
 /* --------------------------------------------------------------------------*/
 /**
  * @brief  Function to read messages and displays it
@@ -36,6 +37,8 @@
 /* --------------------------------------------------------------------------*/
 void chatterCallback(const std_msgs::String::ConstPtr &msg) {
     ROS_INFO("I heard: [%s]", msg->data.c_str());
+    ROS_DEBUG_STREAM("Callback accesed " << callbackCount << "times");
+    callbackCount++;
 }
 
 /* --------------------------------------------------------------------------*/

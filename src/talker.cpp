@@ -98,7 +98,21 @@ int main(int argc, char **argv) {
     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
     ros::ServiceServer service =
         n.advertiseService("update_string", update_string);
-    ros::Rate loop_rate(10);
+
+    // Publishing frequency is given as an argument in beginner.launch
+    int freq;
+    freq = std::atoi(argv[1]);   // give frequency the value of argument
+                                 // ERROR Logging level check
+    if (freq <= 0) ROS_ERROR_STREAM("Invalid publisher frequency");
+
+    // DEBUG Logging level check
+    ROS_DEBUG_STREAM("Publisher frequency set up to: " << freq);
+    ROS_INFO_STREAM("Publisher frequency set up to: " << freq);
+
+    ros::Rate loop_rate(freq);
+
+    // If ROS node is not working
+    if (!ros::ok()) ROS_FATAL_STREAM("ROS is node not running...");
 
     /**
      * A count of how many messages we have sent. This is used to create
@@ -116,6 +130,8 @@ int main(int argc, char **argv) {
         msg.data = ss.str();
 
         ROS_INFO("%s", msg.data.c_str());
+        // WARN Logging level check
+        if (freq < 5) ROS_WARN_STREAM("Frequency too low. Could cause lag");
 
         /**
          * The publish() function is how you send messages. The parameter
