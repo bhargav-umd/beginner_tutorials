@@ -131,7 +131,7 @@ int main(int argc, char **argv) {
 
         ROS_INFO("%s", msg.data.c_str());
         // WARN Logging level check
-        if (freq < 5) ROS_WARN_STREAM("Frequency too low. Could cause lag");
+        if (freq < 5) ROS_WARN_STREAM("Frequency too low, Set it above 5Hz");
 
         /**
          * The publish() function is how you send messages. The parameter
