@@ -68,15 +68,15 @@ Output will look like
 
 ## To call the service
 
-* Once both nodes are running in separate terminals as described above, check in another terminal that the service is being detected. `rosservice list` should output a few services and `/change_string` should be listed.
+* Once both nodes are running in separate terminals as described above, check in another terminal that the service is being detected. `rosservice list` should output a few services and `/update_string` should be listed.
 
 * Now run the following commands to call the service and change the string to be published (`newString` is the message to be published):
 ```
 cd ros_ws
 source devel/setup.bash
-rosservice call /change_string newString
+rosservice call /update_string newString
 ```
-The talker and listener terminals should output now the new message.
+The talker and listener terminals should output now the new message containing newString
 
 ## To run using launch file
 
