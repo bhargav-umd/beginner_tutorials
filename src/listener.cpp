@@ -46,7 +46,7 @@ void chatterCallback(const std_msgs::String::ConstPtr &msg) {
  * @brief  To create Listener node
  *
  * @Param argc is the number of arguments
- * @Param argv is the arguments
+ * @Param argv is the arguments for frequency
  *
  * @Returns 0
  */

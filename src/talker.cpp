@@ -32,10 +32,20 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-std::string newString = "GO Terps GO !! ";
+std::string newString = "GO Terps GO !! ";   // NOLINT
 
-bool update_string(beginner_tutorials::service::Request &req,
-                   beginner_tutorials::service::Response &res) {
+/* --------------------------------------------------------------------------*/
+/**
+ * @brief  updates the string as given to service call argument
+ *
+ * @Param req as request of the service
+ * @Param res as response to the service
+ *
+ * @Returns true
+ */
+/* -------------------------------------------------------------------------*/
+bool update_string(beginner_tutorials::service::Request &req,      // NOLINT
+                   beginner_tutorials::service::Response &res) {   // NOLINT
     newString = req.inp;    // "inp" is the input string in the service
     res.outp = newString;   // "outp" is the output string of the service
     ROS_INFO_STREAM("String is getting  updated");
@@ -96,6 +106,7 @@ int main(int argc, char **argv) {
      * buffer up before throwing some away.
      */
     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+    // Create the service and advertise over ROS
     ros::ServiceServer service =
         n.advertiseService("update_string", update_string);
 
