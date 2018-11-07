@@ -65,3 +65,31 @@ Output will look like
 ```
 [ INFO] [1540934620.527403735]: I heard: [GO TERPS GO 0]
 ```
+
+## To call the service
+
+* Once both nodes are running in separate terminals as described above, check in another terminal that the service is being detected. `rosservice list` should output a few services and `/change_string` should be listed.
+
+* Now run the following commands to call the service and change the string to be published (`newString` is the message to be published):
+```
+cd ros_ws
+source devel/setup.bash
+rosservice call /change_string newString
+```
+The talker and listener terminals should output now the new message.
+
+## To run using launch file
+
+* To run the package with a launch file, first close every terminal related to this package (including `roscore`).
+
+* Now run the following commands in the terminal:
+```
+cd ros_ws
+source devel/setup.bash
+roslaunch beginner_tutorials beginner.launch frequency:=3
+```
+where `frequency` is the argument that changes the publisher frequency. The value 3 is just an example and it can be changed for whatever other integer value.
+
+* Once the `roslaunch` command is executed, another terminal will be opened with the listener output. The first terminal outputs the talker node's output.
+
+
