@@ -25,6 +25,7 @@
  *
  */
 /* ---------------------------------------------------------------------------*/
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 #include <string>
 #include "beginner_tutorials/service.h"
@@ -110,6 +111,10 @@ int main(int argc, char **argv) {
     ros::ServiceServer service =
         n.advertiseService("update_string", update_string);
 
+    // create a TransformBroadcaster object to send transformations
+    static tf::TransformBroadcaster brdcstr;
+    tf::Transform transform;
+
     // Publishing frequency is given as an argument in beginner.launch
     int freq;
     freq = std::atoi(argv[1]);   // give frequency the value of argument
@@ -152,6 +157,16 @@ int main(int argc, char **argv) {
          * in the constructor above.
          */
         chatter_pub.publish(msg);
+
+        // create transformation and set the rotation
+        transform.setOrigin(tf::Vector3(4, 4, 0.0));
+        tf::Quaternion q;
+        q.setRPY(0, 0.785, 0);
+        transform.setRotation(q);
+
+        // Broadcast the transformation
+        brdcstr.sendTransform(
+            tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
 
         ros::spinOnce();
 
