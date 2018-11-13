@@ -1,0 +1,9 @@
+<launch>
+
+<arg name="frequency" default ="20"/>
+<node pkg="beginner_tutorials" name ="talker" type ="talker"
+      args = "$(arg frequency)">
+</node>
+<test test-name="talker_test" pkg="beginner_tutorials" type="talker_test" />
+
+</launch>
