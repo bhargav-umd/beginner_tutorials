@@ -105,19 +105,19 @@ To verify that the TF frames were correctly created, two different actions can b
 
 `rosrun beginner_tutorials talker frequencyvalue` and then `rosrun tf tf_echo world talk`
 
-The output is as included in results directory and as below:
+The output is as included in results directory and as shown below:
+![tf_echo](https://github.com/bhargav-umd/beginner_tutorials/blob/Week11_HW/results/tf_broadcast.png)
 
 * The second way is to use rqt_tf_tree. With the talker node running in a terminal, run the next command in a another terminal:
-
 ```
 rosrun rqt_tf_tree rqt_tf_tree 
 ```
 or simply
-
 ```
 rqt &
 ```
 The output is as shown in results directry:
+![rqt_tree](https://github.com/bhargav-umd/beginner_tutorials/blob/Week11_HW/results/rqt_tf_tree.png)
 
 Run following command to generate pdf using view_frames tool
 ```
@@ -136,6 +136,7 @@ catkin_make run_tests
 ```
 
 This will compile the tests and the terminal should output the results of the tests as shown:
+![test](https://github.com/bhargav-umd/beginner_tutorials/blob/Week11_HW/results/catkin_make%20run_tests.png)
 
 ## Recording with bag files
 
@@ -168,9 +169,7 @@ cd ~/ros_ws
 source devel/setup.bash
 rosrun beginner_tutorials listener
 ```
-
 In a second terminal, 
-
 ```
 cd ~/.ros
 rosbag play bagfile.bag`
