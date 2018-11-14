@@ -119,6 +119,12 @@ rqt &
 ```
 The output is as shown in results directry:
 
+Run following command to generate pdf using view_frames tool
+```
+rosrun tf view_frames
+```
+It will generate frames.pdf 
+
 ## Running rostest
 
 To run rostest, we do not need to run any node. In a terminal go to your ros_ws directory and run the next commands:
