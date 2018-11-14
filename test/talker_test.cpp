@@ -52,7 +52,7 @@ TEST(TestSuite, ServiceTest) {
  *
  * @Returns  RUN_ALL_TESTS
  */
-/* ----------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------*/
 int main(int argc, char **argv) {
     ros::init(argc, argv, "talker_test");
     testing::InitGoogleTest(&argc, argv);
